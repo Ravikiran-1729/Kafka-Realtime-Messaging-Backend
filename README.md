@@ -1,10 +1,10 @@
-# Kafka Chat System (Windows + Docker)
+# 🚀 Kafka Chat System (Windows + Docker)
 
 A simple Kafka-based chat/messaging system using **Zookeeper**, **Kafka**, and **Node.js** producers and consumers, running on **Docker on Windows**.
 
 ---
 
-## Requirements
+## 🧰 Requirements
 
 - Docker Desktop (running)
 - Node.js (v16 or higher)
