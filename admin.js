@@ -1,3 +1,4 @@
+require('dotenv').config();
 const kafka= require('./client');
 const topic = process.env.KAFKA_TOPIC;
 
