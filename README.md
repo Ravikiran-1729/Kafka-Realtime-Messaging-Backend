@@ -68,7 +68,7 @@ npm init -y
 npm install kafkajs
 ```
 
-`kafakajs` is a modern Apache Kafka client for Node.js
+🧩 `kafakajs` is a modern Apache Kafka client for Node.js
 ---
 
 ### 🧩 Create Kafka Topic
@@ -136,16 +136,16 @@ Replace `<container_id>` with container name (example :- `kafka`, `zookeeper`)
 
 ## 📚 Important Documentation Links
 
-📘 KafkaJS (Node.js client)
+- 📘 KafkaJS (Node.js client)
 https://kafka.js.org/docs/getting-started
 
-📘 Apache Zookeeper Official Docs
+- 📘 Apache Zookeeper Official Docs
 https://zookeeper.apache.org/
 
-📘 Docker Desktop for Windows Installation
+- 📘 Docker Desktop for Windows Installation
 https://docs.docker.com/desktop/setup/install/windows-install/
 
-📘 Apache Kafka Official Documentation
+- 📘 Apache Kafka Official Documentation
 https://kafka.apache.org/documentation/
 
 ---
