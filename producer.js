@@ -1,8 +1,8 @@
 const kafka = require('./client');
 // const p = process.argv[2].toString();
-const senderId = '1234567890';
-const receiverId = '9876543210';
-const message = 'Hi how are you!!';
+const senderId = 'user-1';
+const receiverId = 'user-2';
+const message = "Hey, How's you?";
 
 const conversationId = [senderId, receiverId].sort().join(':');
 
