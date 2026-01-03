@@ -6,25 +6,25 @@ A simple Kafka-based chat/messaging system using **Zookeeper**, **Kafka**, and *
 
 ## 🧰 Requirements
 
-- Docker Desktop (running)
-- Node.js (v16 or higher)
-- npm
-- Windows CMD / PowerShell
+- 🐳 Docker Desktop (running)
+- 🟢 Node.js (v16 or higher)
+- 📦 npm
+- 💻 Windows CMD / PowerShell
 
 ---
 
-## System Architecture
+## 🏗️ System Architecture
 
-- **Zookeeper** – Manages Kafka metadata
-- **Kafka Broker** – Stores and distributes messages
-- **Producer (Node.js)** – Sends messages to Kafka
-- **Consumer (Node.js)** – Reads messages using consumer groups
+- **🧭 Zookeeper** – Manages Kafka metadata
+- **🧠 Kafka Broker** – Stores and distributes messages
+- **📥 Producer (Node.js)** – Sends messages to Kafka
+- **📥 Consumer (Node.js)** – Reads messages using consumer groups
 
 ---
 
-## Setup Instructions
+## ⚙️ Setup Instructions
 
-### 1. Start Zookeeper
+### 1️⃣ Start Zookeeper
 
 Open **CMD** and run:
 
@@ -32,11 +32,11 @@ Open **CMD** and run:
 docker run -p 2181:2181 zookeeper
 ```
 
-Keep this terminal open.
+🟡 Keep this terminal open.
 
 ---
 
-### 2. Start Kafka (after Zookeeper)
+### 2️⃣ Start Kafka (after Zookeeper)
 
 Open a **new CMD window** and run:
 
@@ -49,61 +49,79 @@ docker run -p 9092:9092 ^
 confluentinc/cp-kafka:7.5.0
 ```
 
-Replace `<PRIVATE_IP>` with your local system IP (example: `192.168.1.10`).
+📌 Replace `<PRIVATE_IP>` with your local system IP (example: `192.168.1.10`).
+---
+
+### 📦 Node.js Project Setup
+
+Initialize Node.js project
+
+```cmd
+npm init -y
+```
 
 ---
 
-### 3. Create Kafka Topic
+### 📦 Install Required Dependencies
+
+```cmd
+npm install kafkajs
+```
+
+`kafakajs` is a modern Apache Kafka client for Node.js
+---
+
+### 🧩 Create Kafka Topic
 
 ```cmd
 node admin.js
 ```
 
-Creates the Kafka topic used by producers and consumers.
+🧩 Creates the Kafka topic used by producers and consumers.
 
 ---
 
-### 4. Run Consumers (Multiple Groups)
+### 👥 Run Consumers (Multiple Groups)
 
 ```cmd
 node consumer.js group1
 node consumer.js group2
 ```
 
-- Same group → load-balanced consumption  
-- Different groups → each group receives all messages  
+- ⚖️ Same group → load-balanced consumption  
+- 📡 Different groups → each group receives all messages  
 
 ---
 
-### 5. Run Producer
+### ✉️ Run Producer
 
 ```cmd
 node producer.js
 ```
 
-Publishes messages to Kafka with ordered delivery.
+✉️ Publishes messages to Kafka with ordered delivery.
 
 ---
 
-## Kafka Message Behavior
+## 🔐 Kafka Message Behavior
 
-- Messages are sent with a **key (`conversationId`)**
-- Same key → same partition
-- Guarantees **message ordering per conversation**
-- Correct design for chat systems
+- ✅ Messages are sent with a **key (`conversationId`)**
+- 🔁 Same key → same partition
+- 🧾 Guarantees **message ordering per conversation**
+- ✅ Correct design for chat systems
 
 ---
 
-## Ports Used
+## 🌐 Ports Used
 
 | Service    | Port |
 |-----------|------|
-| Zookeeper | 2181 |
-| Kafka     | 9092 |
+| 🧭 Zookeeper | 2181 |
+| 🧠 Kafka     | 9092 |
 
 ---
 
-## Useful Docker Commands
+## 🐳 Useful Docker Commands
 
 ```cmd
 docker ps
@@ -112,26 +130,42 @@ docker stop <container_id>
 docker rm <container_id>
 docker volume prune
 ```
+Replace `<container_id>` with container name (example :- `kafka`, `zookeeper`)
 
 ---
 
-## Use Cases
+## 📚 Important Documentation Links
 
-- Chat / messaging applications
-- Kafka learning projects
-- Consumer group testing
-- Event-driven systems
+📘 KafkaJS (Node.js client)
+https://kafka.js.org/docs/getting-started
+
+📘 Apache Zookeeper Official Docs
+https://zookeeper.apache.org/
+
+📘 Docker Desktop for Windows Installation
+https://docs.docker.com/desktop/setup/install/windows-install/
+
+📘 Apache Kafka Official Documentation
+https://kafka.apache.org/documentation/
+
+---
+## 🎯 Use Cases
+
+- 💬 Chat / messaging applications
+- 📚 Kafka learning projects
+- 👥 Consumer group testing
+- ⚡ Event-driven systems
 
 ---
 
-## Notes
+## ⚠️ Notes
 
 - Always start **Zookeeper before Kafka**
 - Kafka will not distribute messages across partitions if a fixed key is used
-- For scaling, increase partitions and conversations
+- 📈 For scaling, increase partitions and conversations
 
 ---
 
-## License
+## 📄 License
 
 For educational and development purposes.
