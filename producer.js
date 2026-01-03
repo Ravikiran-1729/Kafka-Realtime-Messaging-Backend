@@ -1,3 +1,4 @@
+require('dotenv').config();
 const kafka = require('./client');
 // const p = process.argv[2].toString();
 const senderId = 'user-1';   // replace with sender mobile_no
