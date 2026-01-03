@@ -2,7 +2,7 @@ const {Kafka} = require('kafkajs');
 
 const kafka = new Kafka({
     clientId : 'my-kafka-app',
-    brokers: ['10.130.93.50:9092']
+    brokers: ['<PRIVATE_IP>:9092'] // Replace <PRIVATE_IP> with your private ip address example (198.168.1.202)
 });
 
 
