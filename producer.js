@@ -1,10 +1,12 @@
 const kafka = require('./client');
 // const p = process.argv[2].toString();
-const senderId = 'user-1';
-const receiverId = 'user-2';
+const senderId = 'user-1';   // replace with sender mobile_no
+const receiverId = 'user-2'; // replace with receiver mobile_no 
 const message = "Hey, How's you?";
 
 const conversationId = [senderId, receiverId].sort().join(':');
+
+const topic = process.env.KAFKA_TOPIC;
 
 function syncDate() {
     const now = new Date();
@@ -26,7 +28,7 @@ async function init() {
 
         sends.push(
             producer.send({
-                topic: 'chat-updates',
+                topic: topic,
                 messages: [
                     {
                         key: conversationId,

@@ -1,5 +1,5 @@
 const kafka= require('./client');
-
+const topic = process.env.KAFKA_TOPIC;
 
 async function init() {
     const admin = kafka.admin();
@@ -12,13 +12,13 @@ async function init() {
 
     console.log(list);
 
-    if(!list.includes('chat-updates')){
+    if(!list.includes(topic)){
         console.log('Creating topics....');
         await admin.createTopics({
             waitForLeaders: true,
             topics : [
                 {
-                    topic : 'chat-updates',
+                    topic : topic,
                     numPartitions : 2,
                     replicationFactor : 1,
                 }

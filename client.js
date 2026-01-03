@@ -1,8 +1,9 @@
+require('dotenv').config();
 const {Kafka} = require('kafkajs');
 
 const kafka = new Kafka({
-    clientId : 'my-kafka-app',
-    brokers: ['<PRIVATE_IP>:9092'] // Replace <PRIVATE_IP> with your private ip address example (198.168.1.202)
+    clientId : process.env.KAFKA_CLIENT_ID,
+    brokers: [process.env.KAFKA_BROKER] // Replace <PRIVATE_IP:PORT> with your private ip address example (198.168.1.202:9092)
 });
 
 
