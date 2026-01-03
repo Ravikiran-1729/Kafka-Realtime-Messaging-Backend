@@ -1,7 +1,10 @@
+require('dotenv').config();
 const kafka = require('./client');
 
 const group = process.argv[2];
+const topic = process.env.KAFKA_TOPIC;
 let counter = 1;
+
 
 async function init() {
     const consumer = kafka.consumer({ groupId: group });
@@ -11,7 +14,7 @@ async function init() {
     console.log('Consumer connected.');
 
     await consumer.subscribe({
-        topic: 'chat-updates',
+        topic: topic,
         fromBeginning: false
     });
 
